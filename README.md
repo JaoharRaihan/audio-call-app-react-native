@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # audio-call-app
 
 A simple React Native Expo application for one-to-one audio calls using Agora SDK with a 3-minute call duration limit.
@@ -48,3 +49,6 @@ A simple React Native Expo application for one-to-one audio calls using Agora SD
 ├── app.json           # Expo configuration
 └── assets/            # App assets
 ```
+=======
+# audio-call-app-react-native
+>>>>>>> c3172393264e3704c90a8934eb56f99afaa94890
