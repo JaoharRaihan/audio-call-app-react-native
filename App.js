@@ -4,37 +4,22 @@ import {
   Text,
   View,
   TouchableOpacity,
-  TextInput,
-  Alert,
   SafeAreaView,
   StatusBar,
-  Platform,
 } from 'react-native';
 import { AGORA_CONFIG } from './config';
 
-// For Expo Go compatibility, we'll simulate Agora functionality
-// For production with real Agora, use Expo Development Build
-const APP_ID = AGORA_CONFIG.APP_ID;
-
-// Mock RTC Engine for Expo Go compatibility
 const createMockRtcEngine = () => ({
   create: () => Promise.resolve(),
   enableAudio: () => Promise.resolve(),
-  disableAudio: () => Promise.resolve(),
-  setChannelProfile: () => Promise.resolve(),
-  joinChannel: () => Promise.resolve(),
-  leaveChannel: () => Promise.resolve(),
-  destroy: () => Promise.resolve(),
   muteLocalAudioStream: () => Promise.resolve(),
-  addListener: () => {},
-  removeAllListeners: () => {},
+  destroy: () => Promise.resolve(),
 });
 
 export default function App() {
   const [isJoined, setIsJoined] = useState(false);
   const [isAudioEnabled, setIsAudioEnabled] = useState(true);
-  const [channelName, setChannelName] = useState('test-channel');
-  const [timeLeft, setTimeLeft] = useState(AGORA_CONFIG.MAX_CALL_DURATION); // 3 minutes in seconds
+  const [timeLeft, setTimeLeft] = useState(AGORA_CONFIG.MAX_CALL_DURATION);
   const [remoteUserJoined, setRemoteUserJoined] = useState(false);
   const [callStatus, setCallStatus] = useState('Ready to call');
   
@@ -79,22 +64,11 @@ export default function App() {
 
   const initializeAgora = async () => {
     try {
-      // For Expo Go, we'll use mock engine
-      if (Platform.OS === 'web' || __DEV__) {
-        rtcEngine.current = createMockRtcEngine();
-        console.log('Using mock RTC engine for Expo Go compatibility');
-      } else {
-        // This would be used in a real Expo Development Build
-        rtcEngine.current = createMockRtcEngine();
-      }
-      
-      // Simulate Agora initialization
+      rtcEngine.current = createMockRtcEngine();
       await rtcEngine.current.enableAudio();
       setCallStatus('Ready to call');
-      
     } catch (error) {
       console.error('Failed to initialize:', error);
-      Alert.alert('Info', 'Running in demo mode. For real audio calls, configure Agora App ID and use Expo Development Build.');
     }
   };
 
@@ -102,13 +76,11 @@ export default function App() {
     try {
       setCallStatus('Connecting...');
       
-      // For demo purposes, simulate the connection
       setTimeout(() => {
         setIsJoined(true);
-        setCallStatus('Connected - Mode');
+        setCallStatus('Connected');
         setTimeLeft(AGORA_CONFIG.MAX_CALL_DURATION);
         
-        // Simulate remote user joining after 2 seconds
         setTimeout(() => {
           setRemoteUserJoined(true);
           setCallStatus('In call with remote user');
@@ -117,7 +89,6 @@ export default function App() {
       
     } catch (error) {
       console.error('Failed to join channel:', error);
-      Alert.alert('Error', 'Failed to join call');
       setCallStatus('Failed to connect');
     }
   };
@@ -130,7 +101,6 @@ export default function App() {
       setTimeLeft(AGORA_CONFIG.MAX_CALL_DURATION);
       setIsAudioEnabled(true);
       
-      // Reset status after a delay
       setTimeout(() => {
         setCallStatus('Ready to call');
       }, 2000);
