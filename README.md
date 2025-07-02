@@ -48,6 +48,18 @@ eas build --platform ios --profile development
 eas build --platform all --profile preview
 ```
 
+### Quick Reference Commands:
+```bash
+# Quick Android APK for sharing
+eas build --platform android --profile preview
+
+# Both platforms
+eas build --platform all --profile preview
+
+# Check build status
+eas build:list
+```
+
 ### Sharing Your Build:
 1. After build completion, EAS provides a download link
 2. Share this link with testers
@@ -90,7 +102,25 @@ export const AGORA_CONFIG = {
 4. Push to the branch
 5. Create a Pull Request
 
-## 📄 License
+## � Current Build Status
+
+Your app is currently being built! You can monitor the progress at:
+- **Build URL**: https://expo.dev/accounts/jaoharraihan/projects/audio-call-app/builds/25004d36-9cce-498b-bf43-a6b034f3c9ec
+- **Status**: Building Android APK for sharing
+
+### Quick Commands:
+```bash
+# Check all your builds
+eas build:list
+
+# Build a new Android APK
+eas build --platform android --profile preview
+
+# Build for both platforms
+eas build --platform all --profile preview
+```
+
+## �📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
 
