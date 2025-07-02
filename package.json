@@ -1,5 +1,5 @@
 {
-  "name": "barc-audio-call-app",
+  "name": "audio-call-app",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
