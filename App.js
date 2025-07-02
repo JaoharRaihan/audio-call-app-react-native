@@ -132,7 +132,7 @@ export default function App() {
       <View style={styles.content}>
         {!isJoined ? (
           <View style={styles.setupContainer}>
-            <Text style={styles.appTitle}>Audio Call</Text>
+            <Text style={styles.appTitle}>BARC Audio Call</Text>
             <TouchableOpacity style={styles.joinButton} onPress={joinCall}>
               <Text style={styles.joinButtonText}>Start Call</Text>
             </TouchableOpacity>

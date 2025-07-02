@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "audio-call-app",
-    "slug": "audio-call-app",
+    "name": "BARC Audio Call",
+    "slug": "barc-audio-call-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

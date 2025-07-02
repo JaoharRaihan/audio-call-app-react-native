@@ -1,6 +1,6 @@
-# React Native Audio Call App
+# BARC Audio Call App
 
-A simple React Native Expo application for one-to-one audio calls using Agora SDK with a 3-minute call duration limit.
+A minimal React Native Expo application for one-to-one audio calls using Agora SDK with a 3-minute call duration limit.
 
 ## Features
 
