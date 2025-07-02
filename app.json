@@ -15,16 +15,35 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.audiocallapp.demo",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app needs access to camera for video calls",
+        "NSMicrophoneUsageDescription": "This app needs access to microphone for audio calls"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#000000"
-      }
+      },
+      "permissions": [
+        "CAMERA",
+        "RECORD_AUDIO",
+        "MODIFY_AUDIO_SETTINGS",
+        "ACCESS_NETWORK_STATE",
+        "BLUETOOTH",
+        "BLUETOOTH_ADMIN"
+      ],
+      "package": "com.audiocallapp.demo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7a33235c-8b6a-432f-967f-e76c200a50ac"
+      }
     }
   }
 }
